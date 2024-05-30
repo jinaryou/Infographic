@@ -6,8 +6,6 @@ let ctx;
 let grad, grad2;
 let subIn = 46;
 let slider;
-let g;
-let value = 0;
 
 
 function preload() {
@@ -63,17 +61,17 @@ function draw() {
 
   section1();
   section2();
-
-  g = slider.value();
   section3();
 
   //earth color
-  // g = slider.value();
-  // fill(g, 150);
-  // ellipse(400, 2253, 276, 276);
+  let g = slider.value();
+  fill(g,150);
+  ellipse(400, 2253, 276, 276);
+
 }
 
 function section1() {  //subtitle 1
+  let value = 0;
   let spaceX = 375;
   let spaceY = 153;
   
@@ -100,14 +98,14 @@ function section1() {  //subtitle 1
   // ellipse (114, 439+spaceY, 137);
 
   push();
-  for (let x = 0; x < 2; x++) {
-    for (let y = 0; y < 4; y++) {
-      // noFill();
+  for (let x = 0; x < 2; ++x) {
+    for (let y = 0; y < 4; ++y) {
+      noFill();
       ellipse (114+x*spaceX, 439+y*spaceY, 137, 137 );
     }
   }
   pop();
-  
+
   push();
   fill(value);
   textFont(fontR);
@@ -135,12 +133,12 @@ function section1() {  //subtitle 1
 }
 
 function mouseClicked() {
-  // alert()
   if (value === 0) {
     value = 255;
   } else {
     value = 0;
   }
+
 }
 
 function section2() {  //subtitle 2
@@ -228,12 +226,7 @@ function section3() { //subtitle 3
   text("protein and reducing animal-based foods will protect the", 122, 2017+tInt3);
   text("planet and have a positive impact on human health.", 147, 2017+tInt3*2);
 
-  if(g <= 130){
-    g= 130
-  }
-  tint(g, 255);
   image (earth, 250, 2115);
-  tint (255, 255);
 
   fill("yellow");
   rect(120, 2410, 150, 40, 10);
